@@ -1,0 +1,11 @@
+# copy to proxy.toml and edit (or run `python3 -m reverse_proxy setup`), then `python3 -m reverse_proxy run proxy.toml`
+[server]
+name = "example.org"              # the domain this server answers for (DNS points here), or its public IP
+tls = "letsencrypt"               # letsencrypt (default; ports 80/443 open) | internal (Caddy's local CA)
+email = ""                        # optional: your Let's Encrypt account address (expiry warnings, recovery)
+
+[routes]
+# "host" = "upstream", or "host/prefix/*" = "upstream" (the prefix is stripped before forwarding); every host is the
+# server's name or a subdomain of it. An upstream may carry a path, prepended to every request.
+# { to = "https://...", insecure = true } skips certificate verification for a self-signed upstream.
+"example.org" = "http://100.64.0.10:8765"

@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+# a machine's own config (it names the server and the account)
+proxy.toml

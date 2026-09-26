@@ -1,0 +1,17 @@
+[project]
+name = "reverse-proxy"
+version = "0.2.0"
+description = "A reverse proxy as one command: a small TOML map of names and paths to upstreams, Caddy underneath (automatic HTTPS)"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+reverse-proxy = "reverse_proxy:main"
+
+[tool.setuptools.packages.find]
+include = ["reverse_proxy*"]
